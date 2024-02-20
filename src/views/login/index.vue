@@ -38,7 +38,7 @@ export default {
         Message.success('login success')
         this.$router.push('/')
       } catch (error) {
-        Message.warning('login fail')
+        Message.warning(error)
       }
     }
 

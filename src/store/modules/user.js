@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { login } from '@/api/user.js'
-import { setAppkey, getAppkey } from '@/utils/user.js'
+import { setAppkey, getAppkey, getUsername, setUsername } from '@/utils/user.js'
 
 Vue.use(Vuex)
 
@@ -12,7 +12,7 @@ export default {
     return {
       appkey: getAppkey() || '',
       userInfo: {
-        username: '',
+        username: getUsername() || '',
         role: '',
         email: ''
       }
@@ -36,8 +36,9 @@ export default {
       try {
         const res = await login(data)
         console.log(res)
-        const { appkey } = res
+        const { appkey, username } = res
         setAppkey(appkey)
+        setUsername(username)
         commit('SET_APPKEY', appkey)
         commit('SET_USERINFO', res)
 

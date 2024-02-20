@@ -64,7 +64,6 @@ const whiteRoutes = ['/login']
 router.beforeEach((to, from, next) => {
   // 检查用户是否已登录
   const isAuthenticated = getAppkey() // 假设你的用户登录状态存储在 auth 模块中的 isAuthenticated getter 中
-  console.log(isAuthenticated)
   if (!whiteRoutes.includes(to.path)) {
     // 如果路由需要认证，但用户未登录，则重定向到登录页面
     if (!isAuthenticated) {

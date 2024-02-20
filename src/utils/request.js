@@ -17,6 +17,8 @@ instance.interceptors.response.use(function (response) {
   const { status } = response.data
   if (status === 'success') {
     return response.data.data
+  } else {
+    return Promise.reject(response.data.msg || 'Error')
   }
 }, function (error) {
   // Any status codes that falls outside the range of 2xx cause this function to trigger
