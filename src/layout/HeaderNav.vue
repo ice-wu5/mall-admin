@@ -12,7 +12,7 @@
     </div>
     <div class="userInfo">
       <ul>
-        <li> <span>{{$store.state.user.userInfo.username}}</span>
+        <li> <span>username:{{$store.state.user.userInfo.username}}</span>
           <i class="el-icon-arrow-down"></i></li>
 
         <li><span>退出</span>
