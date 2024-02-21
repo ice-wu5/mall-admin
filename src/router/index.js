@@ -7,14 +7,34 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'Home',
+    redirect: 'count',
+    component: () => import('@/layout/Layout.vue'),
+    children: [
+      {
+        path: 'count',
+        name: 'Count',
+        component: () => import('@/views/home/count.vue')
+      }
+
+    ]
+
+  },
+  {
+    path: '/prod',
     name: 'Layout',
     redirect: 'prodmanage',
     component: () => import('@/layout/Layout.vue'),
     children: [
       {
-        path: 'prodmanage',
+        path: 'manage',
         name: 'Prodmanage',
-        component: () => import('@/views/product/index.vue')
+        component: () => import('@/views/product/prodmanage.vue')
+      },
+      {
+        path: 'add',
+        name: 'Prodadd',
+        component: () => import('@/views/product/prodadd.vue')
       }
     ]
 

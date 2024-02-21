@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { login } from '@/api/user.js'
-import { setAppkey, getAppkey, getUsername, setUsername } from '@/utils/user.js'
+import { setAppkey, getAppkey, getUsername, removeUsername, setUsername, removeAppkey } from '@/utils/user.js'
 
 Vue.use(Vuex)
 
@@ -46,6 +46,13 @@ export default {
       } catch (error) {
         return Promise.reject(error)
       }
+    },
+
+    logout ({ commit }) {
+      removeAppkey()
+      removeUsername()
+      commit('SET_APPKEY', '')
+      commit('SET_USERINFO', {})
     }
   }
 }
