@@ -5,9 +5,8 @@
     <div class="breadcrumb">
       <el-breadcrumb separator="/" style="display:inline-block;margin-left:5px">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item><a href="/">活动管理</a></el-breadcrumb-item>
-        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-        <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/' }">活动</el-breadcrumb-item>
+
       </el-breadcrumb>
     </div>
     <div class="userInfo">
@@ -15,8 +14,12 @@
         <li> <span>username:{{$store.state.user.userInfo.username}}</span>
           <i class="el-icon-arrow-down"></i></li>
 
-        <li><span>退出</span>
-          <i class="el-icon-s-release"></i>
+        <li ><el-popconfirm
+          title="确定退出吗？"
+          @confirm="logout"
+        >
+          <el-button slot="reference">退出</el-button>
+        </el-popconfirm>
         </li>
       </ul>
 
@@ -39,6 +42,10 @@ export default {
     changeCollapse () {
       // this.changeIsCollapse(this.isCollapse)
       this.$store.dispatch('layout/changeIsCollapse', this.isCollapse)
+    },
+    logout () {
+      this.$store.dispatch('user/logout')
+      this.$router.push('/login')
     }
   }
 }
@@ -59,7 +66,7 @@ export default {
   .userInfo{
     text-align: center;
     ul{
-width: 100px;
+width: 150px;
     li {
 
         cursor: pointer;

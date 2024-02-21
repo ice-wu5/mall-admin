@@ -4,23 +4,23 @@
       <el-radio-button :label="false">展开</el-radio-button>
       <el-radio-button :label="true">收起</el-radio-button>
     </el-radio-group> -->
-    <el-menu background-color="#0f3c63"  text-color="#fff" default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-      <el-submenu index="1">
+    <el-menu @select="handleSelect" background-color="#0f3c63"  text-color="#fff" default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+      <el-submenu index="/">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span slot="title">导航一</span>
+          <span slot="title">首页</span>
         </template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
+          <el-menu-item index="/count">统计</el-menu-item>
       </el-submenu>
-      <el-submenu index="2">
+      <el-submenu index="/prod">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span slot="title">导航二</span>
+          <span slot="title">商品管理</span>
         </template>
-          <el-menu-item index="2-1">选项1</el-menu-item>
-          <el-menu-item index="2-2">选项2</el-menu-item>
+          <el-menu-item index="/prod/manage">商品管理</el-menu-item>
+          <el-menu-item index="/prod/add">商品添加</el-menu-item>
       </el-submenu>
+
     </el-menu>
   </div>
 </template>
@@ -41,10 +41,14 @@ export default {
   },
   methods: {
     handleOpen (key, keyPath) {
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     },
     handleClose (key, keyPath) {
+      // console.log(key, keyPath)
+    },
+    handleSelect (key, keyPath) {
       console.log(key, keyPath)
+      this.$router.push(key)
     }
   }
 }

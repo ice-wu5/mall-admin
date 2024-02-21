@@ -14,4 +14,16 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
   }
+  // 'eslint.autoFixOnSave': true, //  启用保存时自动修复,默认只支持.js文件
+  // 'eslint.validate': [
+  //   'javascript', //  用eslint的规则检测js文件
+  //   {
+  //     language: 'vue', // 检测vue文件
+  //     autoFix: true //  为vue文件开启保存自动修复的功能
+  //   },
+  //   {
+  //     language: 'html',
+  //     autoFix: true
+  //   }
+  // ]
 }

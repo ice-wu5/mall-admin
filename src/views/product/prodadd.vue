@@ -1,10 +1,10 @@
 <template>
-  <div class="product">product manage</div>
+  <div class="prodadd">prodadd</div>
 </template>
 
 <script>
 export default {
-  name: 'ProductIndex'
+  name: 'ProdaddIndex'
 }
 </script>
 
