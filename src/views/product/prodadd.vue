@@ -4,7 +4,10 @@
 
 <script>
 export default {
-  name: 'ProdaddIndex'
+  name: 'ProdaddIndex',
+  created () {
+    console.log(this.$route)
+  }
 }
 </script>
 

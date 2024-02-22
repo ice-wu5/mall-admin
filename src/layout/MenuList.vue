@@ -4,7 +4,7 @@
       <el-radio-button :label="false">展开</el-radio-button>
       <el-radio-button :label="true">收起</el-radio-button>
     </el-radio-group> -->
-    <el-menu @select="handleSelect" background-color="#0f3c63"  text-color="#fff" default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+    <el-menu :router="true" @select="handleSelect" background-color="#0f3c63"  text-color="#fff" :default-active="this.$route.path" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
       <el-submenu index="/">
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -47,7 +47,7 @@ export default {
       // console.log(key, keyPath)
     },
     handleSelect (key, keyPath) {
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
       this.$router.push(key)
     }
   }

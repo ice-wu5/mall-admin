@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '@/store/index.js'
 const instance = axios.create({
   baseURL: '/api',
   timeout: 1000
@@ -6,6 +7,12 @@ const instance = axios.create({
 
 // Add a request interceptor
 instance.interceptors.request.use(function (config) {
+  if (store.state.user.appkey) {
+    config.params = {
+      ...config.params,
+      appkey: store.state.user.appkey
+    }
+  }
   // Do something before request is sent
   return config
 })
