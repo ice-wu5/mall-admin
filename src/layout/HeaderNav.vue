@@ -54,6 +54,7 @@ export default {
 <style lang="scss" scoped>
 .header-list {
   display: flex;
+  position: relative;
   height: 50px;
   line-height: 50px;
 
@@ -64,6 +65,9 @@ export default {
   }
 
   .userInfo{
+    position: absolute;
+    right: 0;
+    top:0;
     text-align: center;
     ul{
 width: 150px;
